@@ -75,6 +75,6 @@ PointLingo 是一款创新的 Chrome 翻译插件，允许用户通过简单地�
 
 ## 联系我们
 
-如果您有任何问题或建议，请通过 [issues](https://github.com/您的用户名/PointLingo/issues) 提交，或者[发送邮件](mailto:peter@lyrai.app)至我们的开发团队
+如果您有任何问题或建议，请通过 [issues](https://github.com/hx23840/PointLingo/issues) 提交，或者[发送邮件](mailto:peter@lyrai.app)至我们的开发团队
 
 感谢您的关注和支持！让我们一起构建一个更智能、更开放的未来。
