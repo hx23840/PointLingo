@@ -1,0 +1,44 @@
+{
+    "extensionName": {
+      "message": "PointLingo"
+    },
+    "extensionDescription": {
+      "message": "Translate text on hover using Ollama"
+    },
+    "ollamaHostAddress": {
+      "message": "Ollama Host Address:"
+    },
+    "translationFunction": {
+      "message": "Translation Function:"
+    },
+    "selectTargetLanguage": {
+      "message": "Select Target Language:"
+    },
+    "saveButton": {
+      "message": "Save"
+    },
+    "chinese": {
+      "message": "Chinese"
+    },
+    "english": {
+      "message": "English"
+    },
+    "japanese": {
+      "message": "Japanese"
+    },
+    "settingsSaved": {
+      "message": "Settings saved"
+    },
+    "translationFunctionUpdated": {
+      "message": "Translation function status updated:"
+    },
+    "selectOllamaModel": {
+      "message": "Select Ollama Model:"
+    },
+    "loadingModels": {
+      "message": "Loading models..."
+    },
+    "errorLoadingModels": {
+      "message": "Error loading models"
+    }
+}

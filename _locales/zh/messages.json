@@ -1,0 +1,44 @@
+{
+    "extensionName": {
+      "message": "悬停翻译"
+    },
+    "extensionDescription": {
+      "message": "使用 Ollama 在鼠标悬停时翻译文本"
+    },
+    "ollamaHostAddress": {
+      "message": "Ollama 主机地址："
+    },
+    "translationFunction": {
+      "message": "翻译功能："
+    },
+    "selectTargetLanguage": {
+      "message": "选择目标语言："
+    },
+    "saveButton": {
+      "message": "保存"
+    },
+    "chinese": {
+      "message": "中文"
+    },
+    "english": {
+      "message": "英语"
+    },
+    "japanese": {
+      "message": "日语"
+    },
+    "settingsSaved": {
+      "message": "设置已保存"
+    },
+    "translationFunctionUpdated": {
+      "message": "翻译功能状态已更新："
+    },
+    "selectOllamaModel": {
+      "message": "选择 Ollama 模型："
+    },
+    "loadingModels": {
+      "message": "正在加载模型..."
+    },
+    "errorLoadingModels": {
+      "message": "加载模型时出错"
+    }
+}

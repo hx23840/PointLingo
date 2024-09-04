@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__MSG_extensionName__</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f4f4f5;
+      color: #1f2937;
+      width: 300px;
+      padding: 16px;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      margin-bottom: 16px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #d1d5db;
+      transition: .4s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #3b82f6;
+    }
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+    button {
+      width: 100%;
+      padding: 8px 16px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>__MSG_ollamaHostAddress__</h2>
+    <input type="text" id="hostAddress" placeholder="http://localhost:11434">
+    
+    <h2>__MSG_translationFunction__</h2>
+    <label class="switch">
+      <input type="checkbox" id="translationToggle">
+      <span class="slider"></span>
+    </label>
+    
+    <h2>__MSG_selectTargetLanguage__</h2>
+    <select id="languageSelect">
+      <option value="zh">__MSG_chinese__</option>
+      <option value="en">__MSG_english__</option>
+      <option value="ja">__MSG_japanese__</option>
+    </select>
+    
+    <h2>__MSG_selectOllamaModel__</h2>
+    <select id="modelSelect">
+      <option value="">__MSG_loadingModels__</option>
+    </select>
+    
+    <button id="saveButton">__MSG_saveButton__</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
