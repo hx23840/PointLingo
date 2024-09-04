@@ -14,7 +14,7 @@ PointLingo is an innovative Chrome translation plugin that allows users to get i
 
 ## Installation
 
-1. Install the Chrome plugin (from the Chrome Web Store or provided .crx file)
+1. Install the Chrome plugin (from provided .crx file)
 2. Set up the Ollama service
 
 ### Installing Ollama

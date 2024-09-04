@@ -12,7 +12,7 @@ PointLingo 是一款创新的 Chrome 翻译插件，允许用户通过简单地�
 
 ## 安装步骤
 
-1. 安装 Chrome 插件（从 Chrome 网上应用商店或提供的 .crx 文件）
+1. 安装 Chrome 插件（从提供的 .crx 文件）
 2. 设置 Ollama 服务
 
 ### 安装 Ollama
