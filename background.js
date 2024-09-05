@@ -10,12 +10,25 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        model: "qwen2:0.5b",  // 更改这里
+        model: "qwen2:0.5b",
         prompt: `Translate the following text to ${request.targetLang}:\n\n${request.text}`,
         stream: false
       }),
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text(); // 首先获取原始文本响应
+    })
+    .then(text => {
+      try {
+        return JSON.parse(text); // 尝试解析 JSON
+      } catch (e) {
+        console.error('Failed to parse JSON:', text);
+        throw new Error('Invalid JSON response');
+      }
+    })
     .then(data => {
       if (data.error) throw new Error(data.error);
       sendResponse({result: data.response});

@@ -45,12 +45,58 @@ Please visit the [Ollama official website](https://ollama.ai/) and follow the in
 
 #### For Mac Users
 
-1. Set the environment variable:
+For Mac users, we recommend using a LaunchAgent to set environment variables. This method ensures that environment variables are correctly set at system startup and are available to all GUI applications.
+
+Follow these steps to set the `OLLAMA_ORIGINS` environment variable:
+
+1. Create a LaunchAgent configuration file:
+   a. Open Terminal.
+   b. Run the following command to create the necessary directory (if it doesn't already exist):
+      ```
+      mkdir -p ~/Library/LaunchAgents
+      ```
+   c. Use a text editor to create a file named `environment.plist` in the `~/Library/LaunchAgents/` directory. For example, using nano:
+      ```
+      nano ~/Library/LaunchAgents/environment.plist
+      ```
+   d. Copy the following content into the file:
+      ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>setenv.OLLAMA_ORIGINS</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/bin/launchctl</string>
+          <string>setenv</string>
+          <string>OLLAMA_ORIGINS</string>
+          <string>*</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+   </plist>
+      ```
+   e. Save the file and exit the editor. If using nano, press `Ctrl+X`, then `Y`, and finally `Enter` to save and exit.
+
+2. Load the LaunchAgent:
+   Run the following command in Terminal to load the newly created LaunchAgent:
    ```
-   launchctl setenv OLLAMA_ORIGINS "*"
+   launchctl load ~/Library/LaunchAgents/environment.plist
    ```
 
-2. Restart the Ollama service
+3. Verify the setting:
+   You can verify if the environment variable is correctly set by using the following command:
+   ```
+   launchctl getenv OLLAMA_ORIGINS
+   ```
+   If set correctly, it should display `*`.
+
+4. Restart the Ollama service.
+
+Note: This method is more reliable than using the `launchctl setenv` command alone, as it ensures that the environment variable is correctly set at each system startup and is available to all applications.
 
 ## Usage
 

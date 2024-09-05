@@ -43,12 +43,57 @@ PointLingo 是一款创新的 Chrome 翻译插件，允许用户通过简单地�
 
 #### Mac 用户
 
-1. 设置环境变量：
+对于 Mac 用户，我们推荐使用 LaunchAgent 来设置环境变量。这种方法可以确保环境变量在系统启动时就被正确设置，并对所有 GUI 应用程序可用。
+
+按照以下步骤设置 `OLLAMA_ORIGINS` 环境变量：
+
+1. 创建 LaunchAgent 配置文件：
+   a. 打开终端。
+   b. 运行以下命令创建必要的目录（如果还不存在）：
+      ```
+      mkdir -p ~/Library/LaunchAgents
+      ```
+   c. 使用文本编辑器创建一个名为 `environment.plist` 的文件在 `~/Library/LaunchAgents/` 目录下。例如，使用 nano：
+      ```
+      nano ~/Library/LaunchAgents/environment.plist
+      ```
+   d. 将以下内容复制到文件中：
+      ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>setenv.OLLAMA_ORIGINS</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/bin/launchctl</string>
+          <string>setenv</string>
+          <string>OLLAMA_ORIGINS</string>
+          <string>*</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+   </plist>
+      ```
+   e. 保存文件并退出编辑器。如果使用 nano，按 `Ctrl+X`，然后 `Y`，最后 `Enter` 来保存并退出。
+
+2. 加载 LaunchAgent：
+   在终端中运行以下命令来加载新创建的 LaunchAgent：
    ```
-   launchctl setenv OLLAMA_ORIGINS "*"
+   launchctl load ~/Library/LaunchAgents/environment.plist
    ```
 
-2. 重启 Ollama 服务
+3. 验证设置：
+   可以通过以下命令来验证环境变量是否正确设置：
+   ```
+   launchctl getenv OLLAMA_ORIGINS
+   ```
+   如果正确设置，应该显示 `*`。
+4. 重启 Ollama 服务
+
+注意：这种方法比单独使用 `launchctl setenv` 命令更可靠，因为它确保了环境变量在每次系统启动时都被正确设置，并且对所有应用程序可用。
 
 ## 使用方法
 
